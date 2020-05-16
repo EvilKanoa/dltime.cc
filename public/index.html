@@ -1,22 +1,103 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<title>dltime.cc - Estimate download times!</title>
+		<meta name="author" content="Kanoa Haley <kanoa@kanoa.ca>">
+		<meta name="description" content="Get time estimates for your downloads!">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="utf-8">
-  <title>dltime.cc - Estimate download times!</title>
-  <meta name="author" content="Kanoa Haley <kanoa@kanoa.ca>">
-  <meta name="description" content="Get time estimates for your downloads!">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Include the styles for index.html. -->
+		<link href="./styles/bulma.min.css" rel="stylesheet">
+		<link href="./styles/index.css" rel="stylesheet">
 
-  <link href="styles.css" rel="stylesheet">
-</head>
+		<!-- Include MomentJS and custom dltime scripts. -->
+		<script src="./js/moment-with-locales.min.js"></script>
+		<script src="./js/dltime.js"></script>
+	</head>
 
-<body>
+	<body>
+		<div id="app" class="has-background-dark">
+			<div id="content-container" class="container">
+				<div id="content" class="tile is-ancestor">
+					<div class="tile is-6 is-vertical is-parent">
+						<div class="tile is-child panel is-primary has-background-light">
+							<p class="panel-heading">File Size</p>
 
-  <p>Hello, world!</p>
+							<div class="panel-block">
+								<div class="field has-addons with-expanded">
+									<div class="control is-expanded">
+										<input id="js-input-size-value" class="input is-rounded is-primary" type="text" placeholder="99.99">
+									</div>
+									<div class="control">
+										<div class="select is-rounded is-primary">
+											<select id="js-input-size-unit">
+												<option value="KB">KB</option>
+												<option value="MB">MB</option>
+												<option value="GB" selected>GB</option>
+												<option value="TB">TB</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="scripts.js"></script>
-</body>
+						<div class="tile is-child panel is-info has-background-light">
+							<p class="panel-heading">
+								Download Speed
+							</p>
 
+							<div class="panel-block">
+								<div class="field has-addons with-expanded">
+									<div class="control is-expanded">
+										<input id="js-input-speed-value" class="input is-rounded is-info" type="text" placeholder="99.99">
+									</div>
+									<div class="control">
+										<div class="select is-rounded is-info">
+											<select id="js-input-speed-unit">
+												<option value="bs">b/s</option>
+												<option value="Kbs">Kb/s</option>
+												<option value="Mbs" selected>Mb/s</option>
+												<option value="Gbs">Gb/s</option>
+												<option disabled>----</option>
+												<option value="Bs">B/s</option>
+												<option value="KBs">KB/s</option>
+												<option value="MBs">MB/s</option>
+												<option value="GBs">GB/s</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tile is-parent">
+						<div class="tile is-child panel is-success has-background-light">
+							<p class="panel-heading">Estimate</p>
+
+							<div class="panel-block with-centered">
+								<div class="columns is-centered is-multiline">
+									<div class="column has-text-centered is-12 with-skinny-padding">
+										Time remaining:
+									</div>
+									<div class="column has-text-centered is-12">
+										<span id="js-output-time" class="tag is-success is-rounded is-large">35 minutes</span>
+									</div>
+
+									<div class="column has-text-centered is-12 with-skinny-padding">
+										Time of completion:
+									</div>
+									<div class="column has-text-centered is-12">
+										<span id="js-output-date" class="tag is-success is-rounded is-medium">5:45 pm, January 1, 2020</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

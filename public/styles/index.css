@@ -1,0 +1,21 @@
+#app {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+#content-container {
+	padding: 1rem;
+}
+
+.panel-block > .field.with-expanded {
+	width: 100%;
+}
+
+.panel-block.with-centered {
+	justify-content: center;
+}
+
+.column.with-skinny-padding {
+	padding-bottom: 0;
+}
